@@ -1,0 +1,32 @@
+计算选项，用于给用户输出之前对源数据进行改造
+（不污染源数据）
+改造输出：包括格式的编辑，大小写转换，顺序重排，添加符号……。
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{nprice}}
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data:{
+        price:100
+      },
+      computed:{
+        nprice:function(){
+          return this.price='$'+ this.price +'元'
+        }
+      }
+    })  
+  </script>
+</body>
+</html>

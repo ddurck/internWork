@@ -1,0 +1,33 @@
+生命周期函数需要写在实例vue的时候以属性的方式进行声明
+这个属性是一个函数，在vue的应用运行的每个阶段，系统会自动运行其生命周期函数
+不能使用箭头函数，因为箭头函数没有this
+https://cn.vuejs.org/images/lifecycle.png
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="app">{{message}}{{name}}</div>
+    <script type="text/javascript">
+      let data = {
+        message: "Hello world",
+        name: "nina",
+      };
+      var vm = new Vue({
+        el: "#app",
+        data: data,
+      });
+      vm.$watch('name', function(newVal, oldVal){
+        console.log(newVal, oldVal)
+      })
+
+      vm.$data.name = "dfg"
+    </script>
+  </body>
+</html>

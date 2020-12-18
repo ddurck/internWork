@@ -1,0 +1,14 @@
+//监控新值和老值的变化
+//类似于react里面根据state改变某些东西，三元运算符
+
+app.$watch('temperature',function(newVal,oldVal){
+  if(newVal>=26){
+      this.suggestion=suggestion[0];
+  }else if(newVal<26 && newVal >=0)
+  {
+      this.suggestion=suggestion[1];
+  }else{
+      this.suggestion=suggestion[2];
+  }
+
+})

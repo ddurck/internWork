@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>111</h1>
+  <author></author>
+  <script type="text/javascript">
+    var authodExtend = Vue.extend({
+      template:"<p><a :href='authodUrl'>{{authodName}}</a></p>",
+      data:function(){
+        return{
+          authodName:'nini',
+          authodUrl:'http://www.nini.com'
+        }
+      }
+      //要写成匿名函数的样子不能写成对象
+    })
+    new authodExtend().$mount('author') //绑定到author元素
+    new authodExtend().$mount('author') //绑定到id为author的元素
+  </script>
+</body>
+</html>

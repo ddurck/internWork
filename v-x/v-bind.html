@@ -1,0 +1,23 @@
+处理html中的标签属性
+比如如果想要根据vm中data的某个值的确定某个图片的src：
+动态绑定属性
+响应式更新属性值
+
+
+那在html中：
+<div id = "app">
+  <img v-bind:src="imgSrc" width="200px">
+</div>
+在script里：
+var app = new Vue({
+  el :'#app', 
+  data:{
+    imgSrc:"xxxxxxxxxxxxx"
+  }
+})
+
+<!-- 完整语法 -->
+<a v-bind:href="url"></a>
+<!-- 缩写 -->
+<a :href="url"></a>
+

@@ -1,0 +1,51 @@
+模板制作
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{message}} 
+    </div>
+
+    <!-- //在标签里建模版
+    <template id="dd1">
+       <h2 style="color:red">我是template标签模板</h2>
+    </template> -->
+
+    <script type="x-template" id = "dd2" src="xxx">
+      <!-- 在script标签里建模版，适合引入外部js -->
+      <h2 style="color:red">我是script标签模板</h2>
+    </script>
+
+    <script type= "text/javascript">
+      let vm = new Vue({
+        el : "#app",
+        data :{
+          message:'hello world'
+        },
+        //在template标签/script标签里建模版
+        template:"#dd2",
+
+        //在vm里面建模版(选项模板)
+        // template:`
+        // <h2 style="color:red">我是选项模板</h2>
+        // `,
+        methods: {
+          add:function(){
+            this.count++
+          },
+          minus:function(){
+            this.count--
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

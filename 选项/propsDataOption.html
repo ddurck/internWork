@@ -1,0 +1,27 @@
+主要是用在扩展里
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>这是一个h1</h1>
+  <header></header>
+  <script type="text/javascript">
+    var header_a = Vue.extend({
+      template:'<p>{{message}}--{{nn}}</p>',
+      data:function(){
+        return{
+          message:'hello.......'
+        }
+      },
+      props:['a']
+    })
+    new header_a({propsData:{a:178}}).$mount('header')
+  </script>
+</body>
+</html>

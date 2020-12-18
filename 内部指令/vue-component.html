@@ -1,0 +1,139 @@
+<!-- //指令定义的是标签属性，组件定义的是标签 props属性，使数据变活
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="../vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <test v-bind:here="message"></test>
+      //属性插值，在template里面可以取到here //不支持”-“，用驼峰命名法
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          message: "chinsddd",
+        },
+        methods: {
+          clicknow: function (e) {
+            console.log(e);
+          },
+        },
+        //加s components
+        components: {
+          test: {
+            template: "<h2>h2....from...{{here}}</h2>",
+            //注册一个选项
+            props: ["here"],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
+
+//绑定流程：
+components里面的{{here}}---props---test里面的v-bind的here属性---绑定到vm里面的数据
+component父子组件关系
+开发中需要在一个自定义组件中使用其他自定义组件，这样出现--父子组件
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="../vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <test></test>
+    </div>
+
+    <script type="text/javascript">
+      //在外部定义模板
+
+      //子(错误了一下下，子应该写在前面，从上往下加载)
+      var gg = {
+        template: `<h3>2</h3>`,
+      };
+
+      //父
+      var testComponent = {
+        template: `
+      <div>
+      <h3 style="color:red">
+        2345678
+      </h3>
+      <gg></gg>
+      </div>`,
+        components: {
+          gg: gg,
+        },
+      };
+
+      var vm = new Vue({
+        el: "#app",
+        components: {
+          test: testComponent,
+          //"test"相当于引用的标签的名字，必须使用字符串
+          //testComponent就是在模板中使用的模板
+        },
+      });
+    </script>
+  </body>
+</html> -->
+
+component标签
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="../vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{message}} -->
+      <component v-bind:is="who"></component> 
+      <!-- vue自己定义的标签，可以让我们动态地使用我们自己声明的组件 -->
+      <button @click="changeComponent">click to change</button>
+    </div>
+
+    <script type="text/javascript">
+
+      var gg = {
+        template: `<h3>1</h3>`,
+      };
+      var jj = {
+        template: `<h3>2</h3>`,
+      };
+      var kk = {
+        template: `<h3>3</h3>`,
+      };
+
+
+      var vm = new Vue({
+        el: "#app",
+        data:{
+          who:'gg'
+        },
+        components: {
+          "gg":gg,
+          "jj":jj,
+          "kk":kk
+        },
+        methods: {
+          changeComponent:function(){
+            this.who="gg"?"jj":"kk"
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

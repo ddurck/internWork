@@ -1,0 +1,42 @@
+类似于react里面的map 在html中的li里面直接加v-for标签，
+就会自动循环出在script的Vue实例里面的data数组
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="vue.js"></script>
+    <title>v-for example</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="student in students">{{student.name}}-{{student.age}}</li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: {
+          students: [
+            { name: "jspang", age: 32 },
+            { name: "Panda", age: 30 },
+            { name: "PanPaN", age: 21 },
+            { name: "King", age: 45 },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
+
+如果需要排序： 
+computed:{ 
+  sortItems:function(){ 
+    return this.items.sort(sortNumber); 
+  } 
+} 
+  
+function sortNumber(a,b){ return a-b }

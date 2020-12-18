@@ -1,0 +1,33 @@
+绑定数据源
+这个就相当于react里面的把input的innerhtml还是value来着,
+变成和state里面的数据，这样就实现了数据和数据源的绑定
+对于react来说input里面的值不是自己的，而是监听input，
+input改变了就改变state，state变了就跟着改变input里面的value
+
+而对于vue来说，不需要这个操作，可以直接指定，就自动绑定到了一起
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>{{message}}</div>
+    <h3>input:</h3>
+    <p>v-model:<input type="text" v-model = "message"></p>
+  </div>
+
+  <script type= "text/javascript">
+    var app = new Vue({
+      el : "#app",
+      data:{
+        message:'hello Vue'
+      }
+    })
+  </script>
+</body>
+</html>

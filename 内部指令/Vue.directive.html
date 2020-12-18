@@ -1,0 +1,72 @@
+全局API并不在构造器里，而是先声明全局变量或者直接在Vue上定义一些新功能
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="../vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-nini="color">{{count}}</div>
+      <button v-on:click="add">+</button>
+    </div>
+    <p>
+      <button onclick="unbind()">解绑</button>
+    </p>
+    <script type="text/javascript">
+      //生命周期销毁解绑
+      function unbind() {
+        app.$destroy();
+      }
+      Vue.directive(
+        "nini",
+        {
+          bind: function () {
+            //被绑定
+            console.log("1 - bind");
+          },
+          inserted: function () {
+            //绑定到节点
+            console.log("2 - inserted");
+          },
+          update: function () {
+            //组件更新
+            console.log("3 - update");
+          },
+          componentUpdated: function () {
+            //组件更新完成
+            console.log("4 - componentUpdated");
+          },
+          unbind: function () {
+            //解绑
+            console.log("5 - unbind");
+          },
+        }
+        //     {name: "nini", rawName: "v-nini", value: "green", expression: "color", modifiers: {…}, …}
+        //     def: {bind: ƒ, update: ƒ}
+        //     expression: "color"  表达式
+        //     modifiers: {}
+        //     name: "nini"
+        //     rawName: "v-nini"
+        //     value: "green"
+        //     __proto__: Object
+        // el.style = "color:"+binding.value
+      );
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          count: 10,
+          color: "green",
+        },
+        methods: {
+          add: function () {
+            this.count++;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
