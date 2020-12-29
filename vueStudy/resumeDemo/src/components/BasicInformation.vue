@@ -1,13 +1,27 @@
 <template>
-  <div class="BasicInformation">
-    <div class="wrap">
-      <div class="basic-name">柏柏苯</div>
-      <div class="basic-site">www.hyoohyo.com</div>
+  <div class="step">
+    <div class="title">What's your basic information?</div>
+    <div class="form">
+      <div class="form-item">
+        <input placeholder="First Name" v-model="basicInformation.firstName" />
+        <input placeholder="Last Name" v-model="basicInformation.lastName" />
+      </div>
+      <div class="form-item">
+        <input placeholder="Email" v-model="basicInformation.email" />
+      </div>
+      <div class="form-item">
+        <input placeholder="Phone" v-model="basicInformation.phone" />
+      </div>
+      <div class="form-item">
+        <input placeholder="Address" v-model="basicInformation.address" />
+      </div>
+      <div class="form-item">
+        <input placeholder="Country" v-model="basicInformation.country" />
+        <input placeholder="Province" v-model="basicInformation.province" />
+        <input placeholder="City" v-model="basicInformation.city" />
+      </div>
     </div>
-    <div class="wrap">
-      <div class="basic-phone"><span>电话：</span>111-1111-1111</div>
-      <div class="basic-email"><span>邮箱：</span>fff@gmail.com</div>
-    </div>
+    <button @click="nextStep()">Continue>>></button>
   </div>
 </template>
 
@@ -16,28 +30,26 @@ export default {
   name: "BasicInformation",
   data() {
     return {
-      msg: "i am BasicInformation comp",
+      basicInformation: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        country: "",
+        city: "",
+        province: "",
+      },
     };
+  },
+  methods: {
+    nextStep(){
+      this.$router.push('/info/work_experience')
+    }
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.BasicInformation {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: auto;
-  padding: 1rem;
-  background-color: blanchedalmond;
-  font-size: .8rem;
-}
-.wrap{
-  display: inline-block;
-  text-align: left;
-}
-.basic-name {
-  font-size: 1.2rem;
-}
+
 </style>

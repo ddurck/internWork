@@ -7,11 +7,11 @@
 
 <script>
 // import Comp from '../components/index'
-import BasicInformation from '../components/BasicInformation'
-import EduExperience from '../components/EduExperience'
-import Others from '../components/Others'
-import Project from '../components/Project'
-import Skills from '../components/Skills'
+// import BasicInformation from '../components/BasicInformation'
+// import EduExperience from '../components/EduExperience'
+// import Others from '../components/Others'
+// import Project from '../components/Project'
+// import Skills from '../components/Skills'
 
 export default {
   name: 'Resume',
@@ -21,12 +21,12 @@ export default {
     }
   },
   components:{
-    BasicInformation,
-    EduExperience,
-    Others,
-    Project,
-    Skills,
-    Project
+    // BasicInformation,
+    // EduExperience,
+    // Others,
+    // Project,
+    // Skills,
+    // Project
   }
 }
 </script>
@@ -40,5 +40,6 @@ export default {
   height: 1039.5px;
   margin: 0 auto;
   border:solid black;
+  font-size: 1rem;
 }
 </style>

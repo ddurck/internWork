@@ -1,15 +1,15 @@
 import BasicInformation from './BasicInformation'
-import EduExperience from './EduExperience'
-import Others from './Others'
-import Project from './Project'
-import Skills from './Skills'
+import WorkExperience from './WorkExperience'
+import Education from './Education'
+import Certifications from './Certifications'
+import AdditionalSkills from './AdditionalSkills'
 
 export default {
   components:{
     BasicInformation,
-    EduExperience,
-    Others,
-    Project,
-    Skills
+    WorkExperience,
+    Education,
+    Certifications,
+    AdditionalSkills
   }
 }

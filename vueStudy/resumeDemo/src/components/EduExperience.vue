@@ -3,32 +3,14 @@
     <div class="title">Education</div>
     <div class="line"></div>
     <ul>
-      <li class="info-item">
-        <div class="item-wrap">
-          <div class="institution">xx大学</div>
-          <div class="place">hunan china</div>
-        </div>
-        <div class="item-wrap">
-          <div class="degree">xx学位</div>
-          <div class="time">2020/6-2020/10</div>
-        </div>
-        1111
-      </li>
-      <li class="info-item">
-        <div class="item-wrap">
-          <div class="institution">xx大学</div>
-          <div class="place">hunan china</div>
-        </div>
-        <div class="item-wrap">
-          <div class="degree">xx学位</div>
-          <div class="time">2020/6-2020/10</div>
-        </div>
-      </li>
+      <Exp />
+
     </ul>
   </div>
 </template>
 
 <script>
+import Exp from './Exp';
 export default {
   name: "EduExperience",
   data() {
@@ -36,17 +18,21 @@ export default {
       msg: "i am EduExperience comp",
     };
   },
+  components: {
+    Exp
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang='scss'>
+$box-color:#ef0200;
 ul {
-  margin-block-start: .5em;
-  margin-block-end: .5em;
+  margin-block-start: .5rem;
+  margin-block-end: .5rem;
 }
 .category-box {
-  background-color: darkgray;
+  background-color: box-color;
   padding: 0.2rem 1rem;
 }
 .title {
@@ -60,11 +46,18 @@ ul {
   display: flex;
   justify-content: space-between;
 }
-
-.institution,
-.place,
-.time,
-.degree {
-  display: inline-block;
+input{
+  background:none;  
+	outline:none;  
+	border:none;
+  width: 40%;
+  margin-bottom:.3rem;
 }
+ul{
+  margin-left: -1rem;
+}
+.place, .time {
+  text-align: right;
+}
+
 </style>
